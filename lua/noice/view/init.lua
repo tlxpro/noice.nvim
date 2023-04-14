@@ -189,7 +189,6 @@ function View:content()
 end
 
 function View:set_win_options(win)
-  vim.wo[win].winbar = ""
   vim.wo[win].foldenable = false
   if self._opts.win_options then
     require("nui.utils")._.set_win_options(win, self._opts.win_options)
