@@ -1,5 +1,42 @@
 # Changelog
 
+## [1.12.2](https://github.com/folke/noice.nvim/compare/v1.12.1...v1.12.2) (2023-04-18)
+
+
+### Bug Fixes
+
+* **signature:** nil check for parameter label. Fixes [#435](https://github.com/folke/noice.nvim/issues/435) ([9d778e7](https://github.com/folke/noice.nvim/commit/9d778e7ce29c519ca0285b054e7c3b679bc9d3b9))
+* **signature:** support label offsets ([9649d9f](https://github.com/folke/noice.nvim/commit/9649d9fd4d8fa8a8654e1e9c293718ae8d62e73b))
+
+## [1.12.1](https://github.com/folke/noice.nvim/compare/v1.12.0...v1.12.1) (2023-04-17)
+
+
+### Bug Fixes
+
+* **router:** properly disable updater when disabling Noice. Fixes [#423](https://github.com/folke/noice.nvim/issues/423) ([3bed83b](https://github.com/folke/noice.nvim/commit/3bed83b4d2e4fce03a27071c39be0d9e04313332))
+
+## [1.12.0](https://github.com/folke/noice.nvim/compare/v1.11.0...v1.12.0) (2023-04-16)
+
+
+### Features
+
+* added `Noice dismiss` to hide all visible messages. Fixes [#417](https://github.com/folke/noice.nvim/issues/417) ([a32bc89](https://github.com/folke/noice.nvim/commit/a32bc892aadb26668fd0161962ae4eccb1bf5854))
+
+## [1.11.0](https://github.com/folke/noice.nvim/compare/v1.10.2...v1.11.0) (2023-04-16)
+
+
+### Features
+
+* **lsp:** added config.lsp.hover.silent. Fixes [#412](https://github.com/folke/noice.nvim/issues/412) ([e2a53cf](https://github.com/folke/noice.nvim/commit/e2a53cf946d88d87cd0123711afce5ddad047b7b))
+* **signature:** added signature param docs. Fixes [#421](https://github.com/folke/noice.nvim/issues/421) ([e76ae13](https://github.com/folke/noice.nvim/commit/e76ae13dd272dc23d0154b93172d445aeabad8f1))
+
+
+### Bug Fixes
+
+* **confirm:** keep newlines in confirm message. Fixes [#422](https://github.com/folke/noice.nvim/issues/422) ([051111f](https://github.com/folke/noice.nvim/commit/051111f98d7128c833eaa32423426829981b2aa3))
+* **markdown:** replace `&lt;code&gt;`. Fixes [#424](https://github.com/folke/noice.nvim/issues/424) ([38fb652](https://github.com/folke/noice.nvim/commit/38fb652d0a95780d20a551a6ec44b01226476c99))
+* **markdown:** revert ([d767be9](https://github.com/folke/noice.nvim/commit/d767be960e8660b19595ccff2dad6abd7aae2d4a))
+
 ## [1.10.2](https://github.com/folke/noice.nvim/compare/v1.10.1...v1.10.2) (2023-03-26)
 
 

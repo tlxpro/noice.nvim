@@ -1,4 +1,4 @@
-*noice.nvim.txt*         For Neovim >= 0.8.0        Last change: 2023 March 26
+*noice.nvim.txt*         For Neovim >= 0.8.0        Last change: 2023 April 18
 
 ==============================================================================
 Table of Contents                               *noice.nvim-table-of-contents*
@@ -252,6 +252,7 @@ for configuration recipes.
         },
         hover = {
           enabled = true,
+          silent = false, -- set to true to not show a message if hover is not available
           view = nil, -- when nil, use defaults from documentation
           ---@type NoiceViewOptions
           opts = {}, -- merged with defaults from documentation
@@ -706,6 +707,7 @@ USAGE                           *noice.nvim-noice-(nice,-noise,-notice)-usage*
 
 - `:Noice` or `:Noice history` shows the message history
 - `:Noice last` shows the last message in a popup
+- `:Noice dismiss` dismiss all visible messages
 - `:Noice errors` shows the error messages in a split. Last errors on top
 - `:Noice disable` disables **Noice**
 - `:Noice enable` enables **Noice**

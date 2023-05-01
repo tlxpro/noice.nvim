@@ -207,6 +207,32 @@ function M:format_signature(sig_index, sig)
     Markdown.horizontal_line(self.message)
     Format.format(self.message, sig.documentation, { ft = self.ft })
   end
+
+  ---@type ParameterInformation[]
+  local params = vim.tbl_filter(function(p)
+    return p.documentation
+  end, sig.parameters or {})
+
+  local lines = {}
+  if #params > 0 then
+    for _, p in ipairs(sig.parameters) do
+      if p.documentation then
+        local pdoc = table.concat(Format.format_markdown(p.documentation or ""), "\n")
+        local line = { "-" }
+        if p.label then
+          local label = p.label
+          if type(label) == "table" then
+            label = sig.label:sub(label[1] + 1, label[2])
+          end
+
+          line[#line + 1] = "`[" .. label .. "]`"
+        end
+        line[#line + 1] = pdoc
+        lines[#lines + 1] = table.concat(line, " ")
+      end
+    end
+  end
+  Format.format(self.message, table.concat(lines, "\n"), { ft = self.ft })
 end
 
 function M:format()

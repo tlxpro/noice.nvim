@@ -38,6 +38,7 @@ end
 function M.disable()
   if M._updater then
     M._updater.stop()
+    M._updater = nil
     Manager.clear()
     M.update()
   end
@@ -139,6 +140,16 @@ function M.get_views()
     end
   end
   return views
+end
+
+function M.dismiss()
+  Manager.clear()
+  local views = M.get_views()
+  for view, _ in pairs(views) do
+    view:dismiss()
+    view:display()
+  end
+  M.update()
 end
 
 function M.update()

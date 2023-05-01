@@ -225,6 +225,7 @@ Check the [wiki](https://github.com/folke/noice.nvim/wiki/Configuration-Recipes)
     },
     hover = {
       enabled = true,
+      silent = false, -- set to true to not show a message if hover is not available
       view = nil, -- when nil, use defaults from documentation
       ---@type NoiceViewOptions
       opts = {}, -- merged with defaults from documentation
@@ -627,6 +628,7 @@ require("telescope").load_extension("noice")
 
 - `:Noice` or `:Noice history` shows the message history
 - `:Noice last` shows the last message in a popup
+- `:Noice dismiss` dismiss all visible messages
 - `:Noice errors` shows the error messages in a split. Last errors on top
 - `:Noice disable` disables **Noice**
 - `:Noice enable` enables **Noice**
