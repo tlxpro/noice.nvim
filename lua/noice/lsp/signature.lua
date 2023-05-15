@@ -54,7 +54,9 @@ function M.setup()
     vim.api.nvim_create_autocmd("LspAttach", {
       group = vim.api.nvim_create_augroup("noice_lsp_signature", { clear = true }),
       callback = function(args)
-        M.on_attach(args.buf, vim.lsp.get_client_by_id(args.data.client_id))
+        if args.data ~= nil then
+          M.on_attach(args.buf, vim.lsp.get_client_by_id(args.data.client_id))
+        end
       end,
     })
   end
@@ -150,10 +152,10 @@ function M:active_parameter(sig_index)
     return
   end
   local sig = self.signatures[sig_index]
-  if sig.activeParameter and sig.parameters[sig.activeParameter + 1] then
+  if sig.activeParameter and sig.parameters and sig.parameters[sig.activeParameter + 1] then
     return sig.parameters[sig.activeParameter + 1]
   end
-  if self.activeParameter and sig.parameters[self.activeParameter + 1] then
+  if self.activeParameter and sig.parameters and sig.parameters[self.activeParameter + 1] then
     return sig.parameters[self.activeParameter + 1]
   end
   return sig.parameters and sig.parameters[1] or nil

@@ -26,7 +26,7 @@ end
 
 ---@param text string
 function M.html_entities(text)
-  local entities = { nbsp = "", lt = "<", gt = ">", amp = "&", quot = '"' }
+  local entities = { nbsp = "", lt = "<", gt = ">", amp = "&", quot = '"', apos = "'", ensp = " ", emsp = " " }
   for entity, char in pairs(entities) do
     text = text:gsub("&" .. entity .. ";", char)
   end
@@ -37,7 +37,7 @@ end
 ---@param buf buffer
 ---@param range number[]
 function M.conceal_escape_characters(buf, ns, range)
-  local chars = "\\`*_{}[]()#+-.!"
+  local chars = "\\`*_{}[]()#+-.!/"
   local regex = "\\["
   for i = 1, #chars do
     regex = regex .. "%" .. chars:sub(i, i)

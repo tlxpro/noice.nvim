@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.12.4](https://github.com/folke/noice.nvim/compare/v1.12.3...v1.12.4) (2023-05-07)
+
+
+### Bug Fixes
+
+* **lsp:** add non-nil guard to setup function ([#454](https://github.com/folke/noice.nvim/issues/454)) ([4524216](https://github.com/folke/noice.nvim/commit/4524216d7484c7b183ca1f654d8e66dff28a5680))
+* **markdown:** conceal escaping forward slashes. Fixes [#455](https://github.com/folke/noice.nvim/issues/455) ([a7246aa](https://github.com/folke/noice.nvim/commit/a7246aa99fde34fb9d5e13c62c83ac7226514d67))
+
+## [1.12.3](https://github.com/folke/noice.nvim/compare/v1.12.2...v1.12.3) (2023-05-04)
+
+
+### Bug Fixes
+
+* **health:** fix deprecated health checks healthcheck ([#438](https://github.com/folke/noice.nvim/issues/438)) ([0f12ed3](https://github.com/folke/noice.nvim/commit/0f12ed399e79aa49f283aa954468b92be65e03ed))
+* **markdown:** replace additional html entities ([#448](https://github.com/folke/noice.nvim/issues/448)) ([d31fe94](https://github.com/folke/noice.nvim/commit/d31fe940e0866686718822aaac45527412c45134)), closes [#447](https://github.com/folke/noice.nvim/issues/447)
+* **popupmenu:** only use popupmenu hl group for known item kinds. Fixes [#453](https://github.com/folke/noice.nvim/issues/453) ([0b86a7b](https://github.com/folke/noice.nvim/commit/0b86a7bfbf84927909ed81e9616a5e24602fe6fb))
+* **signature:** safer lsp signature parameters ([#449](https://github.com/folke/noice.nvim/issues/449)) ([e33c346](https://github.com/folke/noice.nvim/commit/e33c34642a7b02db3db03bfc2bec7799bbc2034e))
+
 ## [1.12.2](https://github.com/folke/noice.nvim/compare/v1.12.1...v1.12.2) (2023-04-18)
 
 
