@@ -1,5 +1,77 @@
 # Changelog
 
+## [1.14.2](https://github.com/folke/noice.nvim/compare/v1.14.1...v1.14.2) (2023-05-27)
+
+
+### Bug Fixes
+
+* **block:** better deal with carriage return characters (take 2) ([ee24b36](https://github.com/folke/noice.nvim/commit/ee24b36743b18e53bdc6b49bbfa426fc18ea337a))
+* **text:** temp fixup for CRLF handling ([3e1400f](https://github.com/folke/noice.nvim/commit/3e1400f172cf67041f6845d86413de56fb90e685))
+
+## [1.14.1](https://github.com/folke/noice.nvim/compare/v1.14.0...v1.14.1) (2023-05-27)
+
+
+### Bug Fixes
+
+* **text:** better (correct) way of dealing with `\r` characters. Fixes [#483](https://github.com/folke/noice.nvim/issues/483) ([520a737](https://github.com/folke/noice.nvim/commit/520a73760030f1293bbee41b0dcd041f47d1ecae))
+
+## [1.14.0](https://github.com/folke/noice.nvim/compare/v1.13.4...v1.14.0) (2023-05-25)
+
+
+### Features
+
+* **cmdline:** added support for FloatTitle and added proper default ([79c7059](https://github.com/folke/noice.nvim/commit/79c70594aefb4efecbce4528174fdd0227baaf3e))
+
+## [1.13.4](https://github.com/folke/noice.nvim/compare/v1.13.3...v1.13.4) (2023-05-24)
+
+
+### Bug Fixes
+
+* **cmdline:** fixed a byte offset issue with the new virtual inline text ([a13a88f](https://github.com/folke/noice.nvim/commit/a13a88fb2016b6cfea8f56238566b345f537e47a))
+
+## [1.13.3](https://github.com/folke/noice.nvim/compare/v1.13.2...v1.13.3) (2023-05-24)
+
+
+### Bug Fixes
+
+* **overrides:** noice was leaking extmarks for stylize_markdown ([9b148a1](https://github.com/folke/noice.nvim/commit/9b148a141df7fefc66705e2e7219d11536b99288))
+
+## [1.13.2](https://github.com/folke/noice.nvim/compare/v1.13.1...v1.13.2) (2023-05-22)
+
+
+### Bug Fixes
+
+* **treesitter:** ignore weird invalid end_col errors. Fixes [#473](https://github.com/folke/noice.nvim/issues/473) ([7e2692b](https://github.com/folke/noice.nvim/commit/7e2692b0c461da182a54ff2af4a35aea2bf8ea5c))
+
+
+### Performance Improvements
+
+* don't bufload when highlighting a buffer ([8df4cbd](https://github.com/folke/noice.nvim/commit/8df4cbdae15a915d460828710bf9ff1befb3f12d))
+
+## [1.13.1](https://github.com/folke/noice.nvim/compare/v1.13.0...v1.13.1) (2023-05-21)
+
+
+### Bug Fixes
+
+* support older Neovim versions ([4a1ec5e](https://github.com/folke/noice.nvim/commit/4a1ec5ec0b163a365d7593d93450676b9cbcbebd))
+
+## [1.13.0](https://github.com/folke/noice.nvim/compare/v1.12.4...v1.13.0) (2023-05-21)
+
+
+### Features
+
+* **cmp:** incude item.detail when it's not part of item.documentation ([c2a745a](https://github.com/folke/noice.nvim/commit/c2a745a26ae562f1faecbf6177ac53377d2658d5))
+
+
+### Bug Fixes
+
+* **notify:** nvim-notify replace can be an id or a record ([a9cc87b](https://github.com/folke/noice.nvim/commit/a9cc87b14e18bc3717746b45d79157c0adb43a4d))
+
+
+### Performance Improvements
+
+* cache highlighter queries ([b4eb215](https://github.com/folke/noice.nvim/commit/b4eb2155f3347377eb0c14458755ce7b7966cdb7))
+
 ## [1.12.4](https://github.com/folke/noice.nvim/compare/v1.12.3...v1.12.4) (2023-05-07)
 
 

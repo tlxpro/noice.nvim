@@ -1,4 +1,4 @@
-*noice.nvim.txt*          For Neovim >= 0.8.0         Last change: 2023 May 10
+*noice.nvim.txt*         For Neovim >= 0.8.0         Last change: 2023 June 04
 
 ==============================================================================
 Table of Contents                               *noice.nvim-table-of-contents*
@@ -27,7 +27,6 @@ Highly experimental plugin that completely replaces the UI for `messages`,
 
 FEATURES                     *noice.nvim-noice-(nice,-noise,-notice)-features*
 
-
 - fully **configurable views** like nvim-notify <https://github.com/rcarriga/nvim-notify>,
     splits, popups, virtual text, ..
 - use **filters** to **route messages** to different views
@@ -52,7 +51,6 @@ issues have already been fixed upstream. Check this tracking issue
 
 REQUIREMENTS             *noice.nvim-noice-(nice,-noise,-notice)-requirements*
 
-
 - Neovim >= 0.8.0 **(nightly highly recommended)**
 - nui.nvim <https://github.com/MunifTanjim/nui.nvim>used for proper rendering and multiple views
 - nvim-notify <https://github.com/rcarriga/nvim-notify>notification view _(optional)_
@@ -67,15 +65,14 @@ INSTALLATION             *noice.nvim-noice-(nice,-noise,-notice)-installation*
 Install the plugin with your preferred package manager:
 
 >lua
-    -- Packer
-    use({
+    -- lazy.nvim
+    {
       "folke/noice.nvim",
-      config = function()
-        require("noice").setup({
-            -- add any options here
-        })
-      end,
-      requires = {
+      event = "VeryLazy",
+      opts = {
+        -- add any options here
+      },
+      dependencies = {
         -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
         "MunifTanjim/nui.nvim",
         -- OPTIONAL:
@@ -83,7 +80,7 @@ Install the plugin with your preferred package manager:
         --   If not available, we use `mini` as the fallback
         "rcarriga/nvim-notify",
         }
-    })
+    }
 <
 
 Suggested setup:
@@ -418,7 +415,6 @@ VIEWS                           *noice.nvim-noice-(nice,-noise,-notice)-views*
 
 **Noice** comes with the following built-in backends:
 
-
 - **popup**powered by nui.nvim <https://github.com/MunifTanjim/nui.nvim>
 - **split**powered by nui.nvim <https://github.com/MunifTanjim/nui.nvim>
 - **notify**powered by nvim-notify <https://github.com/rcarriga/nvim-notify>
@@ -533,7 +529,6 @@ defaults, please refer to config.format
 
 **Noice** includes the following formatters:
 
-
 - **level**message level with optional `icon` and `hl_group` per level
 - **text**any text with optional `hl_group`
 - **title**message title with optional `hl_group`
@@ -588,7 +583,6 @@ ROUTES                         *noice.nvim-noice-(nice,-noise,-notice)-routes*
 
 A **route** has a `filter`, `view` and optional `opts` attribute.
 
-
 - **view**one of the views (built-in or custom)
 - **filter** a filter for messages matching this route
 - **opts**options for the view and the route
@@ -639,7 +633,6 @@ STATUSLINE COMPONENTS*noice.nvim-noice-(nice,-noise,-notice)-statusline-componen
 
 **Noice** comes with the following statusline components:
 
-
 - **ruler**
 - **message**last line of the last message (`event=show_msg`)
 - **command**`showcmd`
@@ -653,7 +646,6 @@ the default config.
 You can add custom statusline components in setup under the `status` key.
 
 Statusline components have the following methods:
-
 
 - **get**gets the content of the message **without** highlights
 - **get_hl**gets the content of the message **with** highlights
@@ -703,7 +695,6 @@ formatted with `config.format.formatters.telescope_preview`
 
 
 USAGE                           *noice.nvim-noice-(nice,-noise,-notice)-usage*
-
 
 - `:Noice` or `:Noice history` shows the message history
 - `:Noice last` shows the last message in a popup
@@ -783,13 +774,16 @@ HIGHLIGHT GROUPS     *noice.nvim-noice-(nice,-noise,-notice)-highlight-groups*
 
 Click to see all highlight groups ~
 
-  ---------------------------------------------------------------------------------------------------
+  ---------------------------------------------------------------------------------------------
   Highlight Group                      Default Group                    Description
-  ------------------------------------ -------------------------------- -----------------------------
+  ------------------------------------ -------------------------------- -----------------------
   NoiceCmdline                         MsgArea                          Normal for the classic
-                                                                        cmdline area at the bottom”
+                                                                        cmdline area at the
+                                                                        bottom”
 
   NoiceCmdlineIcon                     DiagnosticSignInfo               Cmdline icon
+
+  NoiceCmdlineIconCalculator           NoiceCmdlineIcon                 
 
   NoiceCmdlineIconCmdline              NoiceCmdlineIcon                 
 
@@ -803,11 +797,15 @@ Click to see all highlight groups ~
 
   NoiceCmdlineIconLua                  NoiceCmdlineIcon                 
 
-  NoiceCmdlineIconSearch               DiagnosticSignWarn               Cmdline search icon (/ and ?)
+  NoiceCmdlineIconSearch               DiagnosticSignWarn               Cmdline search icon (/
+                                                                        and ?)
 
-  NoiceCmdlinePopup                    Normal                           Normal for the cmdline popup
+  NoiceCmdlinePopup                    Normal                           Normal for the cmdline
+                                                                        popup
 
   NoiceCmdlinePopupBorder              DiagnosticSignInfo               Cmdline popup border
+
+  NoiceCmdlinePopupBorderCalculator    NoiceCmdlinePopupBorder          
 
   NoiceCmdlinePopupBorderCmdline       NoiceCmdlinePopupBorder          
 
@@ -821,8 +819,10 @@ Click to see all highlight groups ~
 
   NoiceCmdlinePopupBorderLua           NoiceCmdlinePopupBorder          
 
-  NoiceCmdlinePopupBorderSearch        DiagnosticSignWarn               Cmdline popup border for
-                                                                        search
+  NoiceCmdlinePopupBorderSearch        DiagnosticSignWarn               Cmdline popup border
+                                                                        for search
+
+  NoiceCmdlinePopupTitle               DiagnosticSignInfo               Cmdline popup border
 
   NoiceCmdlinePrompt                   Title                            prompt for input()
 
@@ -870,13 +870,17 @@ Click to see all highlight groups ~
 
   NoiceCompletionItemKindVariable      NoiceCompletionItemKindDefault   
 
-  NoiceCompletionItemMenu              none                             Normal for the popupmenu
+  NoiceCompletionItemMenu              none                             Normal for the
+                                                                        popupmenu
 
-  NoiceCompletionItemWord              none                             Normal for the popupmenu
+  NoiceCompletionItemWord              none                             Normal for the
+                                                                        popupmenu
 
-  NoiceConfirm                         Normal                           Normal for the confirm view
+  NoiceConfirm                         Normal                           Normal for the confirm
+                                                                        view
 
-  NoiceConfirmBorder                   DiagnosticSignInfo               Border for the confirm view
+  NoiceConfirmBorder                   DiagnosticSignInfo               Border for the confirm
+                                                                        view
 
   NoiceCursor                          Cursor                           Fake Cursor
 
@@ -908,7 +912,8 @@ Click to see all highlight groups ~
 
   NoiceFormatTitle                     Title                            
 
-  NoiceLspProgressClient               Title                            Lsp progress client name
+  NoiceLspProgressClient               Title                            Lsp progress client
+                                                                        name
 
   NoiceLspProgressSpinner              Constant                         Lsp progress spinner
 
@@ -920,12 +925,13 @@ Click to see all highlight groups ~
 
   NoicePopupBorder                     FloatBorder                      Border for popup views
 
-  NoicePopupmenu                       Pmenu                            Normal for the popupmenu
+  NoicePopupmenu                       Pmenu                            Normal for the
+                                                                        popupmenu
 
   NoicePopupmenuBorder                 FloatBorder                      Popupmenu border
 
-  NoicePopupmenuMatch                  Special                          Part of the item that matches
-                                                                        the input
+  NoicePopupmenuMatch                  Special                          Part of the item that
+                                                                        matches the input
 
   NoicePopupmenuSelected               PmenuSel                         Selected item in the
                                                                         popupmenu
@@ -940,7 +946,7 @@ Click to see all highlight groups ~
 
   NoiceVirtualText                     DiagnosticVirtualTextInfo        Default hl group for
                                                                         virtualtext views
-  ---------------------------------------------------------------------------------------------------
+  ---------------------------------------------------------------------------------------------
 ==============================================================================
 2. Links                                                    *noice.nvim-links*
 
